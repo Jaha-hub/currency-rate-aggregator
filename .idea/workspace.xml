@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70e9fdc3-fad3-4e39-8da7-268b5a151664" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/core/dependencies.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/exceptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/session.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/core/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/user/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/user/auth/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/user/auth/schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/user/auth/validators.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/user/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/currency-rate-aggregator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/currency-rate-aggregator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +42,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Jaxangir",
     "last_opened_file_path": "C:/Users/user/Documents/GitHub/currency-rate-aggregator/app/user"
   }
 }]]></component>
