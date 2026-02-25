@@ -1,4 +1,5 @@
 import re
+from datetime import datetime
 
 from pydantic import BaseModel, Field, field_validator, model_validator
 from enum import Enum
@@ -78,6 +79,26 @@ class ChangePasswordSchema(BaseModel):
         if self.old_password == self.new_password:
             raise ValueError("Пароли не должны совпадать")
         return self
+
+class UserRead(UserBase):
+    """
+    Pydantic моделька для просмотра пользователя
+
+    Attributes:
+        id: ИД пользователя
+        role: роль пользователя
+        username: имя пользователя
+        email: почта пользователя
+        fullname: полное имя пользователя
+        is_active: флажок активность
+        created_at: временная отметка создания пользователя
+        updated_at: временная отметка обновления пользователя
+    """
+    id: int
+    role: UserRoleEnum
+    is_active: bool
+    created_at: datetime
+    updated_at: datetime | None = None
 
 class Token(BaseModel):
     access_token: str
