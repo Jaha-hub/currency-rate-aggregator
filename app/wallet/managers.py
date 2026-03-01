@@ -48,3 +48,10 @@ class WalletManager:
         )
 
         return updated_wallet
+
+    async def get_wallet_by_user_id(
+            self,
+            user_id: int,
+            wallet: Wallet,
+    ):
+        return await self.repo.get_wallet_by_user_id(user_id, wallet)

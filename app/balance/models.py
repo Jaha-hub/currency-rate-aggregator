@@ -8,4 +8,3 @@ class Balance(Base, IntIdMixin, TimeActionMixin):
     user_id = Column(BigInteger, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
     currency = Column(BigInteger)
     sum = Column(Numeric(16,2))
-
