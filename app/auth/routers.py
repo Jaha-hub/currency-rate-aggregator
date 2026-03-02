@@ -3,7 +3,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from fastapi_utils.cbv import cbv
 from starlette import status
 
-from app.auth.dependencies import get_auth_manager, get_current_user, oauth2_scheme
+from app.auth.dependencies import get_auth_manager, get_current_user
 from app.auth.managers import AuthManager
 from app.auth.models import User
 from app.auth.schemas import Token, UserRead, UserRegister, ChangePasswordSchema, RefreshToken

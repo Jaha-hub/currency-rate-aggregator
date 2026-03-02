@@ -1,6 +1,7 @@
 from app.auth.models import User
 from app.wallet.models import Wallet
 from app.wallet.repositories import WalletRepository
+from app.wallet.schemas import WalletCreate
 
 
 class WalletManager:
@@ -8,7 +9,7 @@ class WalletManager:
         self.session = session
         self.repo = WalletRepository(session)
 
-    async def create_wallet(self, user: User, wallet: Wallet) -> Wallet:
+    async def create_wallet(self, user: User, wallet: Wallet,request: WalletCreate) -> Wallet:
         existing_wallet = await self.repo.get_wallet_by_user_id(user.id, wallet)
 
         if existing_wallet:
@@ -16,7 +17,7 @@ class WalletManager:
 
         wallet = Wallet(user_id=user.id, balance=0)
 
-        return await self.repo.create_wallet(wallet)
+        return await self.repo.create_wallet(wallet, **request.model_dump())
 
     async def update_wallet_balance(
         self,
@@ -31,7 +32,7 @@ class WalletManager:
         """
 
         # Получаем кошелек
-        wallet = await self.repo.get_by_user_id(user_id)
+        wallet = await self.repo.get_wallet_by_user_id(user_id)
 
         if not wallet or wallet.id != wallet_id:
             raise ValueError("Кошелек не найден")

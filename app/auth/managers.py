@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.auth.exceptions import InvalidUsernamePassword, UsernameAlreadyExist, EmailAlreadyExist, InvalidToken
 from app.auth.models import User
 from app.auth.repositories import UserRepository
-from app.auth.schemas import UserRegister, UserRead, ChangePasswordSchema, Token
+from app.auth.schemas import UserRegister, ChangePasswordSchema, Token
 from app.auth.hash_services import PasswordService, TokenService
 
 

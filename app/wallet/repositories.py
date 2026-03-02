@@ -12,9 +12,13 @@ class WalletRepository:
     async def create_wallet(
             self,
             user_id,
+            f_currency,
+            f_sum
     ):
         stmt = insert(Wallet).values(
             user_id=user_id,
+            f_currency=f_currency,
+            f_sum=f_sum,
         ).returning(Wallet)
         result = await self.session.execute(stmt)
         await self.session.flush()
@@ -28,16 +32,7 @@ class WalletRepository:
             user_id: int,
             amount: int,
     ) -> Wallet:
-        stmt = (
-            update(Wallet)
-            .where(
-                Wallet.id == wallet_id,
-                Wallet.user_id == user_id
-            )
-            .values(balance=Wallet.f_sum + amount)
-
-            .returning(Wallet)
-        )
+        stmt = (update(Wallet).where(Wallet.id == wallet_id,Wallet.user_id == user_id).values(Wallet.f_sum + amount).returning(Wallet))
         result = await self.session.execute(stmt)
         wallet = result.scalar_one_or_none()
         if not wallet:

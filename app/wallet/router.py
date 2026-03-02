@@ -7,7 +7,7 @@ from app.auth.dependencies import get_current_user
 from app.auth.models import User
 from app.core.dependencies import get_db
 from app.wallet.managers import WalletManager
-from app.wallet.schemas import WalletBalanceUpdate
+from app.wallet.schemas import WalletBalanceUpdate, WalletCreate
 from app.wallet.models import Wallet
 router = APIRouter(
     prefix="/wallet",
@@ -23,13 +23,14 @@ class WalletRouter:
         "/create",
         status_code=status.HTTP_201_CREATED,
     )
-    async def create_wallet(self):
+    async def create_wallet(self,request: WalletCreate):
         manager = WalletManager(self.session)
 
         try:
             wallet = await manager.create_wallet(
                 user=self.current_user,
-                wallet=Wallet()
+                wallet=Wallet(),
+                **request.model_dump(),
             )
             return wallet
 
@@ -54,6 +55,7 @@ class WalletRouter:
                 wallet_id=wallet_id,
                 user_id=self.current_user.id,
                 amount=data.amount,
+
             )
             return wallet
 
