@@ -17,7 +17,6 @@ class AuthManager:
         self.password_service = PasswordService()
         self.token_service = TokenService()
 
-
     async def login(
             self,
             username: str,
@@ -55,7 +54,6 @@ class AuthManager:
             refresh_token=refresh_token,
         )
 
-
     async def register(
             self,
             request: UserRegister
@@ -84,11 +82,6 @@ class AuthManager:
                 "Username already exist",
             )
 
-        user = await self.user_repo.get_user_by_email(request.email)
-        if user:
-            raise EmailAlreadyExist(
-                "Email already exist",
-            )
 
         hashed_password = self.password_service.hash(request.password)
 
@@ -107,7 +100,6 @@ class AuthManager:
         )
         await self.session.commit()
         return user
-
 
     async def get_me(
             self,
@@ -142,7 +134,6 @@ class AuthManager:
             )
         return user
 
-
     async def change_password(
             self,
             user: User,
@@ -173,7 +164,6 @@ class AuthManager:
         )
 
         await self.session.commit()
-
 
     async def refresh_token(
             self,

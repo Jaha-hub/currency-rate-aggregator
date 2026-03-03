@@ -12,9 +12,7 @@ class UserRoleEnum(Enum):
     admin = 'admin'
 
 class UserBase(BaseModel):
-    user_id: int = Field(ge=1)
     fullname: str = Field(max_length=512)
-    role: UserRoleEnum = UserRoleEnum.user
     username: str = Field(max_length=512)
     @field_validator("username")
     @classmethod
