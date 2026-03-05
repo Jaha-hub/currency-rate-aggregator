@@ -1,9 +1,9 @@
-from sqlalchemy import Column, String, Text
+from sqlalchemy import Column, String, Text, Boolean
 
 from app.core.models import Base, IntIdMixin, TimeActionMixin
 
 
-class User(Base, IntIdMixin,TimeActionMixin):
+class User(Base, IntIdMixin, TimeActionMixin):
     """
 
     """
@@ -12,3 +12,4 @@ class User(Base, IntIdMixin,TimeActionMixin):
     role = Column(String(20), nullable=False, default="user")
     username = Column(String(320), nullable=False, unique=True)
     hashed_password = Column(Text, nullable=False)
+    is_active = Column(Boolean, nullable=False, default=True)

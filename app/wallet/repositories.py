@@ -1,53 +1,74 @@
-from fastapi.params import Depends
-from sqlalchemy.dialects.mysql import insert
+from sqlalchemy import select, insert, update, delete
 
-from app.wallet.dependencies import get_wallet_or_404
-from sqlalchemy import update, select
 from app.wallet.models import Wallet
+
 
 class WalletRepository:
     def __init__(self, session):
         self.session = session
 
-    async def create_wallet(
+    async def create(
             self,
-            user_id,
-            f_currency,
-            f_sum
+            user_id:int,
+            f_currency: str,
+            f_sum: float,
+            s_currency: str,
+            s_sum: float
     ):
         stmt = insert(Wallet).values(
             user_id=user_id,
             f_currency=f_currency,
             f_sum=f_sum,
+            s_currency=s_currency,
+            s_sum=s_sum
         ).returning(Wallet)
         result = await self.session.execute(stmt)
         await self.session.flush()
-        wallet = result.scalar_one_or_none()
-        return wallet
+        wallets = result.scalars().first()
+        return wallets
 
+    async def update(
+            self,
+            user_id:int,
+            wallet_id: int,
+            f_currency: str,
+            f_sum: float,
+            s_currency: str,
+            s_sum: float
+    ):
+        stmt = update(Wallet).where(Wallet.id == wallet_id,Wallet.user_id == user_id).values(
+            f_currency=f_currency,
+            f_sum=f_sum,
+            s_currency=s_currency,
+            s_sum=s_sum
+        )
+        await self.session.execute(stmt)
+        await self.session.flush()
 
-    async def update_wallet_balance(
+    async def get_by_id(
             self,
             wallet_id: int,
-            user_id: int,
-            amount: int,
-    ) -> Wallet:
-        stmt = (update(Wallet).where(Wallet.id == wallet_id,Wallet.user_id == user_id).values(Wallet.f_sum + amount).returning(Wallet))
-        result = await self.session.execute(stmt)
-        wallet = result.scalar_one_or_none()
-        if not wallet:
-            raise ValueError("Кошелек не найден")
-        await self.session.commit()
-        return wallet
-
-    async def get_wallet_by_user_id(
-            self,
-            user_id: int,
-            wallet: Wallet = Depends(get_wallet_or_404),
+            user_id:int
     ):
-        stmt = select(Wallet).where(wallet.user_id == user_id)
+        stmt = select(Wallet).where(Wallet.id == wallet_id,Wallet.user_id == user_id)
         result = await self.session.execute(stmt)
         await self.session.flush()
         wallet = result.scalar_one_or_none()
         return wallet
 
+    async def list(
+            self
+    ):
+        stmt = select(Wallet)
+        result = await self.session.execute(stmt)
+        wallets = result.scalars().all()
+        return wallets
+
+    async def delete(
+            self,
+            wallet_id: int,
+            user_id: int
+    ):
+        stmt = delete(Wallet).where(Wallet.id == wallet_id,Wallet.user_id == user_id)
+        await self.session.execute(stmt)
+        await self.session.flush()

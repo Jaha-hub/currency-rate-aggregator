@@ -1,58 +1,71 @@
-from app.auth.models import User
-from app.wallet.models import Wallet
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.balance.schemas import WalletCreate
 from app.wallet.repositories import WalletRepository
-from app.wallet.schemas import WalletCreate
+from app.wallet.schemas import WalletUpdate
 
 
 class WalletManager:
-    def __init__(self, session):
+    def __init__(
+            self,
+            session: AsyncSession,
+    ):
         self.session = session
-        self.repo = WalletRepository(session)
+        self.wallet_repo = WalletRepository(session)
 
-    async def create_wallet(self, user: User, wallet: Wallet,request: WalletCreate) -> Wallet:
-        existing_wallet = await self.repo.get_wallet_by_user_id(user.id, wallet)
-
-        if existing_wallet:
-            raise ValueError("У пользователя уже есть кошелек")
-
-        wallet = Wallet(user_id=user.id, balance=0)
-
-        return await self.repo.create_wallet(wallet, **request.model_dump())
-
-    async def update_wallet_balance(
-        self,
-        wallet_id: int,
-        user_id: int,
-        amount: int,
-    ) -> Wallet:
-        """
-        Обновляет баланс кошелька пользователя.
-        amount может быть положительным (пополнение)
-        или отрицательным (списание).
-        """
-
-        # Получаем кошелек
-        wallet = await self.repo.get_wallet_by_user_id(user_id)
-
-        if not wallet or wallet.id != wallet_id:
-            raise ValueError("Кошелек не найден")
-
-        # 🔒 Защита от отрицательного баланса
-        if wallet.balance + amount < 0:
-            raise ValueError("Недостаточно средств")
-
-        # Обновляем баланс
-        updated_wallet = await self.repo.update_wallet_balance(
-            wallet_id=wallet_id,
-            user_id=user_id,
-            amount=amount,
-        )
-
-        return updated_wallet
-
-    async def get_wallet_by_user_id(
+    async def create(
             self,
             user_id: int,
-            wallet: Wallet,
+            request: WalletCreate
     ):
-        return await self.repo.get_wallet_by_user_id(user_id, wallet)
+        wallets = await self.wallet_repo.create(
+            user_id=user_id,
+            f_currency=request.f_currency,
+            f_sum=request.f_sum,
+            s_currency=request.s_currency,
+            s_sum=request.s_sum,
+        )
+        await self.session.commit()
+        return wallets
+
+    async def get_by_id(
+            self,
+            wallet_id: int,
+            user_id: int,
+    ):
+        wallets = await self.wallet_repo.get_by_id(wallet_id,user_id)
+        await self.session.commit()
+        return wallets
+
+    async def list(
+            self
+    ):
+        categories = await self.wallet_repo.list()
+        return categories
+
+    async def update(
+            self,
+            wallet_id: int,
+            user_id: int,
+            request: WalletUpdate
+    ):
+        await self.wallet_repo.update(
+            user_id=user_id,
+            wallet_id=wallet_id,
+            f_currency=request.f_currency,
+            f_sum=request.f_sum,
+            s_currency=request.s_currency,
+            s_sum=request.s_sum,
+        )
+        await self.session.commit()
+
+    async def delete(
+            self,
+            wallet_id: int,
+            user_id: int,
+    ):
+        await self.wallet_repo.delete(
+            wallet_id=wallet_id,
+            user_id=user_id
+        )
+        await self.session.commit()

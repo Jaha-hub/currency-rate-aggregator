@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from enum import Enum
 
 
@@ -11,23 +11,13 @@ class CurrencyEnum(str, Enum):
     RUB = "RUB"
     CAD = "CAD"
 
-
 class WalletBase(BaseModel):
     f_currency: CurrencyEnum
-    f_sum: float = Field(ge=1)
-    s_currency: CurrencyEnum
-    s_sum: float = Field(ge=1)
-
-
+    f_sum: int
 
 
 class WalletCreate(WalletBase):
     pass
 
-
-class WalletUpdate(WalletBase):
+class WalletBalanceUpdate(WalletBase):
     pass
-
-
-class WalletDelete(BaseModel):
-    wallet_id: int
