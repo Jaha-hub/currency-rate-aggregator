@@ -6,5 +6,5 @@ scheduler = BackgroundScheduler()
 scheduler.add_job(
     update_rates,
     "interval",
-    hours=1
+    hours=24
 )

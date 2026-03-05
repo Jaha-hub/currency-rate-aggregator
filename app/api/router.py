@@ -5,13 +5,8 @@ from app.api.dependencies import get_manager
 router = APIRouter(prefix="/currency")
 
 
-@router.on_event("startup")
-def start_scheduler():
-    scheduler.start()
-
-
 @router.get("/rate")
-def get_rate(
+async def get_rate(
         from_currency: str,
         to_currency: str,
         manager: CurrencyManager = Depends(get_manager)
@@ -26,7 +21,7 @@ def get_rate(
 
 
 @router.get("/convert")
-def convert(
+async def convert(
         amount: float,
         from_currency: str,
         to_currency: str,
@@ -43,7 +38,7 @@ def convert(
 
 
 @router.get("/analytics")
-def analytics(
+async def analytics(
         manager: CurrencyManager = Depends(get_manager)
 ):
     wallet = [
@@ -57,4 +52,13 @@ def analytics(
     return {
         "portfolio_value": value,
         "profit": profit
+    }
+
+
+@router.get("/")
+async def get_all_rates():
+    manager: CurrencyManager = Depends(get_manager)
+    rates = manager.get_all_rates()
+    return {
+        "rates": rates
     }

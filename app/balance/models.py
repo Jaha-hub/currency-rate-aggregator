@@ -13,7 +13,6 @@ class Balance(Base, IntIdMixin, TimeActionMixin):
     )
 
     f_currency = Column(String, nullable=False)
-
     f_sum = Column(Numeric(20, 2), nullable=False)
-
-    buy_price = Column(Numeric(20, 6), nullable=False)
+    s_currency = Column(String, nullable=False)
+    s_sum = Column(Numeric(20, 2), nullable=False)

@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from enum import Enum
 
 
@@ -13,9 +13,9 @@ class CurrencyEnum(str, Enum):
 
 class WalletBase(BaseModel):
     f_currency: CurrencyEnum
-    f_sum: float
-    buy_price: float
-
+    f_sum: float = Field(ge=1)
+    s_currency: CurrencyEnum
+    s_sum: float = Field(ge=1)
 
 class WalletCreate(WalletBase):
     pass
