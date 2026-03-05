@@ -12,12 +12,14 @@ class BalanceRepository:
             self,
             user_id,
             f_currency,
-            f_sum
+            f_sum,
+            buy_price
     ):
         stmt = insert(Balance).values(
             user_id=user_id,
             f_currency=f_currency,
             f_sum=f_sum,
+            buy_price=buy_price
         ).returning(Balance)
         result = await self.session.execute(stmt)
         await self.session.flush()

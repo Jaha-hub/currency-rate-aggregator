@@ -5,28 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ff89668-39d2-4216-ba99-f5b81c718e90" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env.py" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/client_get.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/dependencies.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/router.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/scheduleк.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/currency-rate-aggregator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/currency-rate-aggregator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/auth/managers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth/managers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/auth/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/auth/repositories.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth/repositories.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/auth/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/balance/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/balance/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/wallet/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/wallet/dependencies.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/wallet/dependencies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/wallet/managers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/wallet/managers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/wallet/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/wallet/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/wallet/repositories.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/wallet/repositories.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/wallet/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/wallet/router.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/wallet/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/wallet/schemas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/well/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/well/manager.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/c0fd6fdf6940_intial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/d9a3a7e729a2_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/f94ad569e818_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/balance/repositories.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/balance/repositories.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/balance/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/balance/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/versions/56bb07ce85db_home1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/versions/5a1dfe3e9bd0_home3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/versions/ff9189e14865_home2.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,16 +56,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/user/Documents/GitHub/currency-rate-aggregator/app/auth"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Documents/GitHub/currency-rate-aggregator/app/auth&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\user\Documents\GitHub\currency-rate-aggregator\app\auth" />

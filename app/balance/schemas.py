@@ -13,7 +13,8 @@ class CurrencyEnum(str, Enum):
 
 class WalletBase(BaseModel):
     f_currency: CurrencyEnum
-    f_sum: int
+    f_sum: float
+    buy_price: float
 
 
 class WalletCreate(WalletBase):
