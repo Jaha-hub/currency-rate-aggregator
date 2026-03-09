@@ -6,9 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="4ff89668-39d2-4216-ba99-f5b81c718e90" name="Changes" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.env.py" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
 <<<<<<< HEAD
 =======
+=======
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+>>>>>>> 38bc1189971101ddfd90cc69cd8722cbea255a32
 =======
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
 >>>>>>> 38bc1189971101ddfd90cc69cd8722cbea255a32
@@ -24,6 +28,7 @@
       <change beforePath="$PROJECT_DIR$/app/balance/dependencies.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/balance/dependencies.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/balance/managers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/balance/managers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/balance/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/balance/models.py" afterDir="false" />
+<<<<<<< HEAD
 <<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/app/wallet/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/wallet/dependencies.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/wallet/dependencies.py" afterDir="false" />
@@ -41,11 +46,16 @@
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
 >>>>>>> 75bf24abc686d194208579c8e6d48821fe78e0ba
 =======
+=======
+>>>>>>> 38bc1189971101ddfd90cc69cd8722cbea255a32
       <change beforePath="$PROJECT_DIR$/app/balance/repositories.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/balance/repositories.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/balance/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/balance/router.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/balance/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/balance/schemas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+<<<<<<< HEAD
+>>>>>>> 38bc1189971101ddfd90cc69cd8722cbea255a32
+=======
 >>>>>>> 38bc1189971101ddfd90cc69cd8722cbea255a32
     </list>
     <option name="SHOW_DIALOG" value="false" />
