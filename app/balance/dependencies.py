@@ -12,4 +12,4 @@ async def get_wallet_or_404(
         user_id: int,
         manager: BalanceManager = Depends(get_wallet_manager),
 ):
-    return await manager.get_wallet_by_user_id(user_id)
+    return await manager.get_all_balances(user_id)
