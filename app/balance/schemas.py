@@ -11,14 +11,16 @@ class CurrencyEnum(str, Enum):
     RUB = "RUB"
     CAD = "CAD"
 
-class WalletBase(BaseModel):
+class BalanceBase(BaseModel):
     f_currency: CurrencyEnum
     f_sum: float = Field(ge=1)
-    s_currency: CurrencyEnum
-    s_sum: float = Field(ge=1)
+    balance_usd: float = Field(ge=1)
 
-class WalletCreate(WalletBase):
+class BalanceCreate(BalanceBase):
     pass
 
-class WalletBalanceUpdate(WalletBase):
+class BalanceUpdate(BalanceBase):
     pass
+
+class BalanceRead(BaseModel):
+    id: int

@@ -1,13 +1,13 @@
-from fastapi import HTTPException, Depends
+from fastapi import HTTPException
+from app.balance.managers import BalanceManager
 
-from app.balance.dependencies import get_wallet_or_404
-from app.balance.models import Balance
 
 
 class CurrencyManager:
     def __init__(self, redis):
         self.redis = redis
         self.key = "currency_rates"
+        self.balance = BalanceManager()
 
     def get_rate(self, from_currency: str, to_currency: str) -> float:
         pair = f"{from_currency}{to_currency}"
@@ -26,7 +26,7 @@ class CurrencyManager:
     def analyze(
             self,
             user_id: int,
-            balance: Balance = Depends(get_wallet_or_404),
     ):
+        pass
 
 
