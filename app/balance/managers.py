@@ -1,24 +1,22 @@
-from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
-
-from app.api.dependencies import get_manager
 
 from app.auth.models import User
 from app.balance.models import Balance
 from app.balance.repositories import BalanceRepository
 from app.balance.schemas import BalanceCreate
-from app.core.dependencies import get_db
 
 
 class BalanceManager:
-    def __init__(self, session: AsyncSession = Depends(get_db())):
+    def __init__(self, session: AsyncSession):
         self.session = session
         self.repo = BalanceRepository(session)
-        self.curr = get_manager()
 
     async def create_balances(self, user: User, request: BalanceCreate) -> Balance:
-        usd = self.curr.get_rate(request.f_currency, "USD")
-        balance_usd = int(request.f_sum) * int(usd)
+        from app.api.manager import CurrencyManager
+        curr = CurrencyManager()
+
+        usd = await curr.get_rate(request.f_currency)
+        balance_usd = float(request.f_sum) / float(usd)
 
         wallet = await self.repo.create(
             user_id=user.id,

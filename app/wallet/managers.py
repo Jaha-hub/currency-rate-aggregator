@@ -1,6 +1,6 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.balance.schemas import WalletCreate
+from app.wallet.schemas import WalletCreate
 from app.wallet.repositories import WalletRepository
 from app.wallet.schemas import WalletUpdate
 

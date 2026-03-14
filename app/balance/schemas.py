@@ -14,7 +14,6 @@ class CurrencyEnum(str, Enum):
 class BalanceBase(BaseModel):
     f_currency: CurrencyEnum
     f_sum: float = Field(ge=1)
-    balance_usd: float = Field(ge=1)
 
 class BalanceCreate(BalanceBase):
     pass
